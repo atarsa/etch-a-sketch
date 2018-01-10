@@ -1,0 +1,12 @@
+.container{
+	margin: 150px auto;
+	display: grid;
+	width: 600px;
+	height: 600px;
+	border: 12px solid black;
+}
+.gridDiv{
+	margin: 0;
+	border: 1px solid black;
+	background: red;
+}
