@@ -3,8 +3,8 @@
 	display: grid;
 	grid-template-columns: repeat(16, 1fr);
 	
-	width: 960px;
-	height: 960px;
+	width: 720px;
+	height: 720px;
 	border: 10px solid black;
 }
 .gridCell{
@@ -15,6 +15,3 @@
 	background: #fff;
 }
 
-.hover{
-	color: black;
-}

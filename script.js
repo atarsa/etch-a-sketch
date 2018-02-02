@@ -2,8 +2,6 @@
 https://stackoverflow.com/questions/20308270/create-multiple-divs-with-the-same-class-javascript
 */
 
-(function (){
-	"use strict";
 	
 	function createGridCell(){
 		var gridCell = document.createElement('div');
@@ -14,19 +12,20 @@ https://stackoverflow.com/questions/20308270/create-multiple-divs-with-the-same-
 		return gridCell;
 	};
 
-	function createBoardContainer(){
+	function createBoardContainer(gridNumber){
 		var board = document.getElementById('board');
 		var myDivs = [];
-		var numOfDivs = 16*16;
+		var numOfDivs = gridNumber * gridNumber;
 		var i = 0;
-
+		board.innerHTML = "";
 		for (i; i < numOfDivs; i++){
 			myDivs.push(createGridCell());
 			board.appendChild(myDivs[i]);
 		}
 	};
 
-	createBoardContainer();
+	var gridNumber = 16;
+	createBoardContainer(gridNumber);
 	
 	var board = document.getElementById("board");
 	board.addEventListener("mouseover",function(event){
@@ -34,7 +33,18 @@ https://stackoverflow.com/questions/20308270/create-multiple-divs-with-the-same-
 							
 		});
 	
-}());
+	var handlers = {
+		resetGrid: function(){
+
+			var resetGridButton = document.getElementById("reset");
+			resetGridButton.addEventListener("click", createBoardContainer());
+			resetGridButton.addEventListener("click", function(){
+				gridNumber = parseInt(prompt('how big the grid?',16),10);
+				return gridNumber;
+			});
+		}
+	}
+
 
 
 
