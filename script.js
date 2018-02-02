@@ -24,12 +24,19 @@ https://stackoverflow.com/questions/20308270/create-multiple-divs-with-the-same-
 			myDivs.push(createGridCell());
 			board.appendChild(myDivs[i]);
 		}
-	}
-	
+	};
+
 	createBoardContainer();
+	
+	var board = document.getElementById("board");
+	board.addEventListener("mouseover",function(event){
+			event.target.style.backgroundColor = "black";
+							
+		});
+	
 }());
 
- 
+
 
 
 
