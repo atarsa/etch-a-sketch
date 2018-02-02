@@ -23,9 +23,16 @@ https://stackoverflow.com/questions/20308270/create-multiple-divs-with-the-same-
 			board.appendChild(myDivs[i]);
 		}
 	};
+/*
+Using Css variables in js
+with a help of this article:
+ https://medium.com/@fionnachan/dynamic-number-of-rows-and-columns-with-css-grid-layout-and-css-variables-cb8e8381b6f2
+*/ 
 
-	var gridNumber = 16;
-	createBoardContainer(gridNumber);
+	let htmlStyles = window.getComputedStyle(document.querySelector("html"));
+	let columnNumber = parseInt(htmlStyles.getPropertyValue("--columnNumber"));
+	
+	createBoardContainer(columnNumber);
 	
 	var board = document.getElementById("board");
 	board.addEventListener("mouseover",function(event){
@@ -37,10 +44,10 @@ https://stackoverflow.com/questions/20308270/create-multiple-divs-with-the-same-
 		resetGrid: function(){
 
 			var resetGridButton = document.getElementById("reset");
-			resetGridButton.addEventListener("click", createBoardContainer());
 			resetGridButton.addEventListener("click", function(){
-				gridNumber = parseInt(prompt('how big the grid?',16),10);
-				return gridNumber;
+				gridNumber = parseInt(prompt('how big the grid?'),10);
+				document.documentElement.style.setProperty("--columnNumber", gridNumber);
+				createBoardContainer(gridNumber);
 			});
 		}
 	}

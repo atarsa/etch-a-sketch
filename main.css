@@ -1,8 +1,11 @@
+:root {
+	--columnNumber: 16;
+}
+
 .board{
 	margin: 150px auto;
 	display: grid;
-	grid-template-columns: repeat(16, 1fr);
-	
+	grid-template-columns: repeat(var(--columnNumber), auto);
 	width: 720px;
 	height: 720px;
 	border: 10px solid black;
