@@ -5,28 +5,28 @@ https://stackoverflow.com/questions/20308270/create-multiple-divs-with-the-same-
 (function (){
 	"use strict";
 	
-	function createGridDiv(){
-		var gridDiv = document.createElement('div');
+	function createGridCell(){
+		var gridCell = document.createElement('div');
 		
-		gridDiv.className ='gridDiv';
-		gridDiv.innerHTML = ' ';
+		gridCell.className ='gridCell';
+		gridCell.innerHTML = ' ';
 		
-		return gridDiv;
+		return gridCell;
 	};
 
-	function createContainer(){
-		var container = document.querySelector('#container');
+	function createBoardContainer(){
+		var board = document.getElementById('board');
 		var myDivs = [];
-		var numOfDivs = 256;
+		var numOfDivs = 16*16;
 		var i = 0;
 
 		for (i; i < numOfDivs; i++){
-			myDivs.push(createGridDiv());
-			container.appendChild(myDivs[i]);
+			myDivs.push(createGridCell());
+			board.appendChild(myDivs[i]);
 		}
 	}
 	
-	createContainer();
+	createBoardContainer();
 }());
 
  
