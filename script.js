@@ -1,6 +1,6 @@
-/* with a help from StackOverflow:
-https://stackoverflow.com/questions/20308270/create-multiple-divs-with-the-same-class-javascript
-*/
+	/* create boardContainer with a help from StackOverflow:
+	https://stackoverflow.com/questions/20308270/create-multiple-divs-with-the-same-class-javascript
+	*/
 
 	
 	function createGridCell(){
@@ -40,13 +40,23 @@ https://stackoverflow.com/questions/20308270/create-multiple-divs-with-the-same-
 			} else if (board.classList[1] === "eraser"){
 				event.target.style.backgroundColor = "white"
 
+			} else if (board.classList[1] === "colorPicked") {
+				event.target.style.backgroundColor = colorPickerButton.value;
 			} else 	{
 				event.target.style.backgroundColor = "black";
 			}
 			
 							
 	});
-
+	/*
+	buttons global variabls
+	*/
+	var resetGridButton = document.getElementById("reset");
+	var blackColorButtun = document.getElementById("blackColor");
+	var colorPickerButton = document.getElementById("colorPicker");
+	var randomColorButton = document.getElementById("randomColor");
+	var eraserButton = document.getElementById("eraser");
+	
 	/*
 	Helpers functions
 	*/
@@ -72,8 +82,6 @@ https://stackoverflow.com/questions/20308270/create-multiple-divs-with-the-same-
 
 	var handlers = {
 		resetGrid: function(){
-
-			var resetGridButton = document.getElementById("reset");
 			resetGridButton.addEventListener("click", function(){
 				gridNumber = parseInt(prompt('how big the grid?'),10);
 				document.documentElement.style.setProperty("--columnNumber", gridNumber);
@@ -82,15 +90,18 @@ https://stackoverflow.com/questions/20308270/create-multiple-divs-with-the-same-
 			});
 		},
 		blackColor: function(){
-			var blackColorButtun = document.getElementById("blackColor");
 			blackColorButtun.addEventListener("click", function(){
 				removeClass();
 				board.classList.add("blackColor");
 			});
 		},
+		colorPicker: function(){
+			colorPickerButton.addEventListener("click", function(){
+				removeClass();
+				board.classList.add("colorPicked");
+			})
+		},
 		randomColor: function(){
-			
-			var randomColorButton = document.getElementById("randomColor");
 			randomColorButton.addEventListener("click",function(){
 				removeClass();
 				board.classList.add("randomColor");
@@ -98,7 +109,6 @@ https://stackoverflow.com/questions/20308270/create-multiple-divs-with-the-same-
 			});
 		},
 		eraser: function(){
-			var eraserButton = document.getElementById("eraser");
 			eraserButton.addEventListener("click", function(){
 				removeClass();
 				board.classList.add("eraser");
