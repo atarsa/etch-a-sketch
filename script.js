@@ -35,23 +35,7 @@
 	
 	var board = document.getElementById("board");
 	board.addEventListener("mouseover",function(event){
-		// var boardClassListLength = board.classList.length;
-		// if(boardClassListLength == 1){
-		// 	event.target.style.backgroundColor = "#000";
-		// }
-		// else if(boardClassListLength == 2){
-		// 	var boardClass2ndEl = board.classList.item(1);
-		// 	if (boardClass2ndEl == "randomColor"){
-		// 		event.target.style.backgroundColor = createRandomColor();
-		// 	} else if (boardClass2ndEl == "eraser"){
-		// 		event.target.style.backgroundColor = "#ededed"
-
-		// 	} else if (boardClass2ndEl == "colorPicked") {
-		// 		event.target.style.backgroundColor = colorPickerButton.value;
-		// 	} 
-		// } else{
-		// 	event.target.style.backgroundColor = "#000";
-		// }	
+		
 		if (board.classList[1] === "randomColor"){
 			event.target.style.backgroundColor = createRandomColor();
 		} else if (board.classList[1] === "eraser"){
