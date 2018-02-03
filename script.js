@@ -35,17 +35,33 @@
 	
 	var board = document.getElementById("board");
 	board.addEventListener("mouseover",function(event){
-			if (board.classList[1] === "randomColor"){
-				event.target.style.backgroundColor = createRandomColor();
-			} else if (board.classList[1] === "eraser"){
-				event.target.style.backgroundColor = "#ededed"
+		// var boardClassListLength = board.classList.length;
+		// if(boardClassListLength == 1){
+		// 	event.target.style.backgroundColor = "#000";
+		// }
+		// else if(boardClassListLength == 2){
+		// 	var boardClass2ndEl = board.classList.item(1);
+		// 	if (boardClass2ndEl == "randomColor"){
+		// 		event.target.style.backgroundColor = createRandomColor();
+		// 	} else if (boardClass2ndEl == "eraser"){
+		// 		event.target.style.backgroundColor = "#ededed"
 
-			} else if (board.classList[1] === "colorPicked") {
-				event.target.style.backgroundColor = colorPickerButton.value;
-			} else 	{
-				event.target.style.backgroundColor = "black";
-			}
-			
+		// 	} else if (boardClass2ndEl == "colorPicked") {
+		// 		event.target.style.backgroundColor = colorPickerButton.value;
+		// 	} 
+		// } else{
+		// 	event.target.style.backgroundColor = "#000";
+		// }	
+		if (board.classList[1] === "randomColor"){
+			event.target.style.backgroundColor = createRandomColor();
+		} else if (board.classList[1] === "eraser"){
+			event.target.style.backgroundColor = "#ededed"
+
+		} else if (board.classList[1] === "colorPicked") {
+			event.target.style.backgroundColor = colorPickerButton.value;
+		} else 	{
+			event.target.style.backgroundColor = "#000";
+		}
 							
 	});
 	/*
@@ -82,42 +98,58 @@
 
 	var handlers = {
 		resetGrid: function(){
-			resetGridButton.addEventListener("click", function(){
-				gridNumber = parseInt(prompt('How many squares per side would you like? (Default: 16)'),10);
-				document.documentElement.style.setProperty("--columnNumber", gridNumber);
-				createBoardContainer(gridNumber);
-				removeClass();
-			});
+			view.resetGrid();
 		},
 		blackColor: function(){
-			blackColorButtun.addEventListener("click", function(){
-				removeClass();
-				board.classList.add("blackColor");
-			});
+			view.blackColor();
 		},
 		colorPicker: function(){
-			colorPickerButton.addEventListener("click", function(){
-				removeClass();
-				board.classList.add("colorPicked");
-			})
+			view.colorPicker();
 		},
 		randomColor: function(){
-			randomColorButton.addEventListener("click",function(){
-				removeClass();
-				board.classList.add("randomColor");
-								
-			});
+			view.randomColor();
 		},
 		eraser: function(){
-			eraserButton.addEventListener("click", function(){
-				removeClass();
-				board.classList.add("eraser");
-			});
+			view.eraser();
 		}
 		
 	}
 
-
+var view = {
+	resetGrid: function(){
+		gridNumber = parseInt(prompt('How many squares per side would you like? (Default: 16)'),10);
+		document.documentElement.style.setProperty("--columnNumber", gridNumber);
+		createBoardContainer(gridNumber);
+		removeClass();
+	},
+	blackColor: function(){
+		removeClass();
+		board.classList.add("blackColor");
+	},
+	colorPicker: function(){
+		removeClass();
+		board.classList.add("colorPicked");
+	},
+	randomColor: function(){
+		removeClass();
+		board.classList.add("randomColor");
+	},
+	eraser: function(){
+		removeClass();
+		board.classList.add("eraser");
+	},
+	setUpEventListeners: function() {
+		var buttons = document.getElementsByClassName("btn");
+		var numButtons = buttons.length;
+		
+		for (var i = 0; i < numButtons; i++){
+			buttons[i].addEventListener("click", function(event){
+			var elementClicked = event.target;
+			});
+		};
+	}			
+};
+view.setUpEventListeners();
 
 
 
