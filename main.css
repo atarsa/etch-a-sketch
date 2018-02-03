@@ -1,18 +1,75 @@
 :root {
 	--columnNumber: 16;
 }
+body{
+	background: #FFED99;
+}
+/* ==================
+	Grid
+   ================== */
+.container{
+	max-width: 960px;
+	margin: 50px auto;
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	grid-template-rows: 1fr 4fr;
+}
+.tools{
+	grid-column: 1/2;
+	grid-row-start: 2/3;
 
-.board{
-	margin: 150px auto;
+}
+h1{
+	grid-column: 1/3;
+	grid-row: 1/2;
+	text-align: center;
+}
+.btn{
+	display: block;
+}
+
+#board{
+	grid-column: 2/3;
+	grid-row: 2/3;
 	display: grid;
 	grid-template-columns: repeat(var(--columnNumber), auto);
-	width: 720px;
-	height: 720px;
-	border: 10px solid black;
+	width: 600px;
+	height: 600px;
+	border: 5px solid #7F7231;
+	border-radius: 5px;
+	cursor: crosshair;
+	-webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.29);
+	-moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.29);
+	box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.29);
 }
 .gridCell{
 	margin: 0;
 	padding: 0;
-	background: #fff;
+	border: 1px dashed #e8eaed;
+	background: #ededed;
 }
 
+.btn{
+	margin: 10px;
+	padding: 10px;
+	width: 150px;
+	font-size: 18px;
+	background-color: #FFD300;
+	color: #fff;
+	border: 1px solid #FFD300;
+	-webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.29);
+	-moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.29);
+	box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.29);
+}
+input[type=color]{
+	width: 130px;
+	
+}
+.btn:hover{
+	color: #FFD300;
+	background-color: #fff;
+}
+h1,h4{
+	color: #7F7231;
+	font-family: 'Arvo', serif;
+}

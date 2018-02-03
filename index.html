@@ -5,22 +5,31 @@
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 				<title>Etch-a-Sketch</title>
 	<link rel="stylesheet" href="main.css">
+	<link href="https://fonts.googleapis.com/css?family=Arvo:400,700" rel="stylesheet">
 	
 	
 </head>
 
 <body>
-	<button id="reset" onclick="handlers.resetGrid()">Reset Me</button>
-	<button id=blackColor onclick="handlers.blackColor()">Black pen</button>
-	Choose your color:
-	<input id="colorPicker" type="color" onclick="handlers.colorPicker()">
-	<button id="randomColor" onclick="handlers.randomColor()">Rainbow</button>
-	<button id="eraser" onclick="handlers.eraser()">Eraser</button>
-	<div id="board" class="board">
+	
+	<div class="container">
+		<div class="tools">
+			
+			<button id="reset" class="btn" onclick="handlers.resetGrid()">Reset Grid</button>
+			<button id=blackColor class="btn" onclick="handlers.blackColor()">Black pen</button>
+			
+			<button id="randomColor" class="btn" onclick="handlers.randomColor()">Rainbow</button>
+			<button id="eraser" class="btn" onclick="handlers.eraser()">Eraser</button>
+			<h4>Pick a Color:</h4>
+			<input id="colorPicker" class="btn" type="color" onclick="handlers.colorPicker()">
+		</div>
+
+		<h1>Etch-a-Sketch</h1>
+		<div id="board" class="board"></div>
 		
+	
+	
 	</div>
-	
-	
 	<script src="script.js"></script>
 	
 </body>

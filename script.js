@@ -38,7 +38,7 @@
 			if (board.classList[1] === "randomColor"){
 				event.target.style.backgroundColor = createRandomColor();
 			} else if (board.classList[1] === "eraser"){
-				event.target.style.backgroundColor = "white"
+				event.target.style.backgroundColor = "#ededed"
 
 			} else if (board.classList[1] === "colorPicked") {
 				event.target.style.backgroundColor = colorPickerButton.value;
@@ -83,7 +83,7 @@
 	var handlers = {
 		resetGrid: function(){
 			resetGridButton.addEventListener("click", function(){
-				gridNumber = parseInt(prompt('how big the grid?'),10);
+				gridNumber = parseInt(prompt('How many squares per side would you like? (Default: 16)'),10);
 				document.documentElement.style.setProperty("--columnNumber", gridNumber);
 				createBoardContainer(gridNumber);
 				removeClass();
