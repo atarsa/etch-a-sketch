@@ -8,4 +8,4 @@ The goal was to create simple browser version of a sketchpad using HTML,CSS and 
 By default the grid is 16x16, but user can set any 1:1 grid.
 
 
-[See it here](https://elpetit69.github.io/etch-a-sketch/).
+[See it here](https://atarsa.github.io/etch-a-sketch/).
